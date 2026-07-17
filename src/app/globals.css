@@ -133,7 +133,7 @@ body {
       var(--notebook-margin) calc(100% - 57px),
       transparent calc(100% - 57px)
     ),
-    /* Double ruled lines with large spacing */
+    /* Double ruled lines with larger spacing */
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
@@ -141,9 +141,9 @@ body {
       var(--notebook-line) 78px,
       var(--notebook-line) 79.5px,
       transparent 79.5px,
-      transparent 84px,
-      var(--notebook-line) 84px,
-      var(--notebook-line) 85.5px
+      transparent 88px,
+      var(--notebook-line) 88px,
+      var(--notebook-line) 89.5px
     );
   transition: background-color 0.4s ease;
 }
@@ -212,23 +212,20 @@ body {
 /* ---- Navbar ---- */
 .navbar {
   position: fixed;
-  top: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 0;
   z-index: 2000;
   display: flex;
   align-items: center;
   gap: 36px;
   padding: 14px 36px;
   background: var(--toggle-bg);
-  border: 1.5px solid var(--border-color);
-  border-radius: 100px;
+  border-bottom: 1.5px solid var(--border-color);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: var(--shadow-md);
   transition: background 0.4s ease;
-  width: calc(100vw - 60px);
-  max-width: 1200px;
+  width: 100vw;
   justify-content: space-between;
 }
 
@@ -360,44 +357,34 @@ body {
 
 .teacher-image-wrapper {
   position: relative;
-  width: 500px;
-  height: 600px;
+  width: 480px;
+  height: 480px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
-}
-
-.teacher-image-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 500px;
-  height: 500px;
-  background: var(--teacher-circle-bg);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) translateZ(-50px);
-  z-index: -1;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
 }
 
 .teacher-image-container {
   position: relative;
   width: 100%;
   height: 100%;
+  background: var(--teacher-circle-bg);
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
   transform: translateZ(0);
 }
 
 .teacher-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: center bottom;
+  object-fit: cover;
+  object-position: top center;
   filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
-  transform: scale(1.6); /* Scale up the image significantly */
-  transform-origin: bottom center;
+  transform: scale(1.15) translateY(20px);
+  transform-origin: top center;
 }
 
 /* ---- 3D Spiral Letters ---- */
@@ -650,12 +637,12 @@ body {
 
   .teacher-image-wrapper {
     width: 350px;
-    height: 440px;
+    height: 350px;
   }
 
   .teacher-image-container {
-    width: 300px;
-    height: 400px;
+    width: 100%;
+    height: 100%;
   }
 
   .teacher-info-name {
@@ -890,14 +877,8 @@ body {
 
   .teacher-image-wrapper {
     order: 2;
-    width: 100%;
-    max-width: 340px;
-    height: 380px;
-  }
-
-  .teacher-image-wrapper::before {
-    width: 300px;
-    height: 300px;
+    width: 320px;
+    height: 320px;
   }
 
   /* Horizontal marquee below image on mobile */
