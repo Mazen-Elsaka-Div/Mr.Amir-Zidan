@@ -4,6 +4,7 @@
    =================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=array@700,400&display=swap');
 
 /* ---- CSS Variables / Theme Tokens ---- */
 :root {
@@ -254,9 +255,9 @@ body {
 }
 
 .name-word {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Array', 'Bebas Neue', sans-serif;
   font-size: 4.5rem;
-  font-weight: 900;
+  font-weight: 700;
   writing-mode: vertical-lr;
   text-orientation: mixed;
   color: var(--vertical-name-color);
@@ -380,7 +381,7 @@ body {
 
 .teacher-info-title {
   font-family: 'Cairo', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -390,7 +391,7 @@ body {
 
 .teacher-info-quote {
   font-family: 'Cairo', sans-serif;
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 400;
   color: var(--text-muted);
   line-height: 1.8;
