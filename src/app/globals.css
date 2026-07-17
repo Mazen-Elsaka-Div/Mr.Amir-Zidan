@@ -227,8 +227,8 @@ body {
 /* ---- Vertical Name (Scrolling Marquee) ---- */
 .vertical-name {
   display: flex;
-  flex-direction: row;
-  gap: 12px;
+  flex-direction: column;
+  gap: 0;
   height: 60vh;
   overflow: hidden;
   direction: ltr;
@@ -243,19 +243,12 @@ body {
   height: 100%;
 }
 
-.marquee-content-up, .marquee-content-down {
+.marquee-content-up {
   display: flex;
   flex-direction: column;
   gap: 24px;
-}
-
-.marquee-content-up {
-  animation: scrollUp 8s linear infinite;
-}
-
-.marquee-content-down {
-  transform: translateY(-50%);
-  animation: scrollDown 8s linear infinite;
+  animation: scrollUp 15s linear infinite;
+  will-change: transform;
 }
 
 .name-word {
@@ -308,10 +301,6 @@ body {
   transform: translate(-50%, -50%) translateZ(-50px);
   z-index: -1;
   box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-}
-
-[data-theme="dark"] .teacher-image-wrapper::before {
-  background: #4a151f; /* Darker variant for dark mode */
 }
 
 .teacher-image-container {
@@ -495,9 +484,9 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--typing-color);
-  display: inline;
-  position: relative;
-  line-height: 2;
+  margin: 0;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .typing-cursor {
@@ -563,11 +552,6 @@ body {
 @keyframes scrollUp {
   0% { transform: translateY(0); }
   100% { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
 }
 
 @keyframes floatSway {

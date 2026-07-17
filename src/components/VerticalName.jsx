@@ -12,14 +12,12 @@ export default function VerticalName() {
     <div className="vertical-name" id="vertical-name" dir="ltr">
       <div className="marquee-column">
         <div className="marquee-content-up">
+          {/* First set */}
           <span className="name-word">{name1}</span>
+          <span className="name-word name-word-alt">{name2}</span>
+          {/* Duplicated set for seamless loop */}
           <span className="name-word" aria-hidden="true">{name1}</span>
-        </div>
-      </div>
-      <div className="marquee-column">
-        <div className="marquee-content-down">
-          <span className="name-word">{name2}</span>
-          <span className="name-word" aria-hidden="true">{name2}</span>
+          <span className="name-word name-word-alt" aria-hidden="true">{name2}</span>
         </div>
       </div>
     </div>
