@@ -26,10 +26,10 @@ export default function TeacherImage() {
               
               // 3 full rotations
               const rotateY = progress * 360 * 3;
-              // Y translation: from bottom (-200px) to top (200px)
-              const translateY = 200 - (progress * 400);
+              // Y translation: from bottom to top (scaled up for large image)
+              const translateY = 350 - (progress * 700);
               // Radius of spiral
-              const translateZ = 160;
+              const translateZ = 320;
 
               return (
                 <span
@@ -52,8 +52,7 @@ export default function TeacherImage() {
           <Image
             src="/images/teacher.png"
             alt="مستر أمير زيدان - مدرس اللغة الإنجليزية"
-            width={360}
-            height={480}
+            fill
             priority
             style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
           />
@@ -62,4 +61,5 @@ export default function TeacherImage() {
     </div>
   );
 }
+
 
