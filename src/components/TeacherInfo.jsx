@@ -1,17 +1,27 @@
 'use client';
 
+import { useLang } from './LanguageContext';
+
 export default function TeacherInfo() {
+  const { lang } = useLang();
+
   return (
     <div className="teacher-info" id="teacher-info">
-      <h1 className="teacher-info-name">أ/ أمير زيدان</h1>
+      <h1 className="teacher-info-name">
+        {lang === 'ar' ? 'أ/ أمير زيدان' : 'Mr. Amir Zedan'}
+      </h1>
       
       <p className="teacher-info-title">
-        مستر أمير زيدان | مدرس اللغة الإنجليزية للثانوية العامة والأزهرية
+        {lang === 'ar' 
+          ? 'مستر أمير زيدان | مدرس اللغة الإنجليزية للثانوية العامة والأزهرية'
+          : 'Mr. Amir Zedan | English Teacher for Secondary & Al-Azhar'}
       </p>
 
       <div className="teacher-info-quote">
         <p>
-          لو الإنجليزي مقلقك، عبقري لغة هيلحقك! مستر أمير زيدان هيساعدك بخبرة كبيرة، أفكار مبتكرة، واستراتيجيات مراجعة ذكية توصلك لأعلى الدرجات.
+          {lang === 'ar'
+            ? 'لو الإنجليزي مقلقك، عبقري لغة هيلحقك! مستر أمير زيدان هيساعدك بخبرة كبيرة، أفكار مبتكرة، واستراتيجيات مراجعة ذكية توصلك لأعلى الدرجات.'
+            : 'If English worries you, a language genius will catch you! Mr. Amir Zedan will help you with great experience, innovative ideas, and smart review strategies to reach the highest grades.'}
         </p>
       </div>
 
@@ -22,8 +32,9 @@ export default function TeacherInfo() {
           <line x1="19" y1="8" x2="19" y2="14" />
           <line x1="22" y1="11" x2="16" y2="11" />
         </svg>
-        اشترك معانا
+        {lang === 'ar' ? 'اشترك معانا' : 'Subscribe Now'}
       </button>
     </div>
   );
 }
+

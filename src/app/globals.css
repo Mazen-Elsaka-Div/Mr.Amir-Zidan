@@ -168,6 +168,40 @@ body {
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
+/* ---- Language Toggle ---- */
+.lang-toggle {
+  position: fixed;
+  top: 24px;
+  left: 84px;
+  z-index: 1000;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  background: var(--toggle-bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(10px);
+  font-family: 'Cairo', 'Outfit', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.lang-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-gold);
+}
+
+.lang-toggle:active {
+  transform: scale(0.95);
+}
+
 /* ---- Hero Section ---- */
 .hero-section {
   position: relative;
@@ -193,8 +227,8 @@ body {
 /* ---- Vertical Name (Scrolling Marquee) ---- */
 .vertical-name {
   display: flex;
-  flex-direction: row;
-  gap: 12px;
+  flex-direction: column;
+  gap: 0;
   height: 60vh;
   overflow: hidden;
   direction: ltr;
@@ -206,26 +240,19 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
-
-.marquee-content-up, .marquee-content-down {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+  height: 100%;
 }
 
 .marquee-content-up {
-  animation: scrollUp 8s linear infinite;
-}
-
-.marquee-content-down {
-  transform: translateY(-50%);
-  animation: scrollDown 8s linear infinite;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: scrollUp 10s linear infinite;
 }
 
 .name-word {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 900;
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -236,19 +263,10 @@ body {
   line-height: 1;
 }
 
-.marquee-column:last-child .name-word {
+.name-word-alt {
   color: var(--vertical-name-gold);
 }
 
-@keyframes scrollUp {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-@keyframes scrollDown {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
-}
 
 /* ---- Teacher Image Section (Center Column) ---- */
 .teacher-image-section {
@@ -261,20 +279,17 @@ body {
 
 .teacher-image-wrapper {
   position: relative;
-  width: 100%;
-  height: 75vh;
-  min-height: 600px;
-  max-height: 800px;
+  width: 450px;
+  height: 550px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
 }
 
 .teacher-image-container {
-  position: absolute;
-  bottom: 0;
+  position: relative;
   width: 100%;
   height: 100%;
   transform: translateZ(0);
@@ -329,7 +344,7 @@ body {
   flex-direction: column;
   gap: 20px;
   padding: 20px 30px;
-  text-align: right;
+  text-align: start;
 }
 
 .teacher-info-name {
@@ -350,8 +365,8 @@ body {
   font-weight: 600;
   color: var(--text-secondary);
   line-height: 1.6;
-  border-right: 3px solid var(--accent-gold);
-  padding-right: 16px;
+  border-inline-start: 3px solid var(--accent-gold);
+  padding-inline-start: 16px;
 }
 
 .teacher-info-quote {
@@ -376,7 +391,7 @@ body {
   opacity: 0.3;
   position: absolute;
   top: -10px;
-  right: 10px;
+  inset-inline-start: 10px;
   line-height: 1;
 }
 
@@ -581,8 +596,8 @@ body {
   }
 
   .teacher-info-title {
-    border-right: none;
-    padding-right: 0;
+    border-inline-start: none;
+    padding-inline-start: 0;
     border-bottom: 3px solid var(--accent-gold);
     padding-bottom: 12px;
   }
