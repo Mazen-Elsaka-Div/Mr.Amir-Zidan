@@ -4,7 +4,7 @@
    =================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=array@700,400&display=swap');
+@import url('https://api.fontshare.com/v2/css?f%5B%5D=array@700,400&display=swap');
 
 /* ---- CSS Variables / Theme Tokens ---- */
 :root {
@@ -369,8 +369,8 @@ body {
 
 .teacher-info-name {
   font-family: 'Playfair Display', 'Cairo', serif;
-  font-size: 3.2rem;
-  font-weight: 800;
+  font-size: 4.5rem;
+  font-weight: 900;
   color: var(--text-primary);
   line-height: 1.2;
   background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 50%, var(--accent-gold-light) 100%);
@@ -381,8 +381,8 @@ body {
 
 .teacher-info-title {
   font-family: 'Cairo', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--text-secondary);
   line-height: 1.6;
   border-inline-start: 3px solid var(--accent-gold);
@@ -391,8 +391,8 @@ body {
 
 .teacher-info-quote {
   font-family: 'Cairo', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 400;
+  font-size: 1.35rem;
+  font-weight: 500;
   color: var(--text-muted);
   line-height: 1.8;
   position: relative;
