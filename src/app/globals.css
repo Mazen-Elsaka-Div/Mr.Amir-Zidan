@@ -227,8 +227,8 @@ body {
 /* ---- Vertical Name (Scrolling Marquee) ---- */
 .vertical-name {
   display: flex;
-  flex-direction: column;
-  gap: 0;
+  flex-direction: row;
+  gap: 12px;
   height: 60vh;
   overflow: hidden;
   direction: ltr;
@@ -243,11 +243,19 @@ body {
   height: 100%;
 }
 
-.marquee-content-up {
+.marquee-content-up, .marquee-content-down {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  animation: scrollUp 10s linear infinite;
+  gap: 24px;
+}
+
+.marquee-content-up {
+  animation: scrollUp 8s linear infinite;
+}
+
+.marquee-content-down {
+  transform: translateY(-50%);
+  animation: scrollDown 8s linear infinite;
 }
 
 .name-word {
@@ -279,13 +287,31 @@ body {
 
 .teacher-image-wrapper {
   position: relative;
-  width: 450px;
-  height: 550px;
+  width: 500px;
+  height: 600px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
+}
+
+.teacher-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 500px;
+  height: 500px;
+  background: #681f2b; /* Deep maroon/red like the reference image */
+  border-radius: 50%;
+  transform: translate(-50%, -50%) translateZ(-50px);
+  z-index: -1;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .teacher-image-wrapper::before {
+  background: #4a151f; /* Darker variant for dark mode */
 }
 
 .teacher-image-container {
@@ -300,7 +326,9 @@ body {
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+  transform: scale(1.6); /* Scale up the image significantly */
+  transform-origin: bottom center;
 }
 
 /* ---- 3D Spiral Letters ---- */
@@ -523,6 +551,23 @@ body {
   10% { opacity: 1; }
   90% { opacity: 1; }
   100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+.name-word-alt {
+  color: var(--vertical-name-gold);
+}
+
+.marquee-column:last-child .name-word {
+  color: var(--vertical-name-gold);
+}
+
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes floatSway {
