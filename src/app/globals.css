@@ -181,7 +181,7 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.5fr 2.5fr auto;
+  grid-template-columns: 1.8fr 2.2fr auto;
   gap: 20px;
   align-items: center;
   max-width: 1440px;
@@ -194,11 +194,12 @@ body {
 .vertical-name {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 20px;
+  gap: 12px;
   height: 60vh;
   overflow: hidden;
-  direction: ltr; /* Ensure LTR */
+  direction: ltr;
+  flex-shrink: 0;
+  width: fit-content;
 }
 
 .marquee-column {
@@ -210,22 +211,21 @@ body {
 .marquee-content-up, .marquee-content-down {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 .marquee-content-up {
-  animation: scrollUp 15s linear infinite;
+  animation: scrollUp 8s linear infinite;
 }
 
 .marquee-content-down {
-  /* Start offset for seamless looping */
   transform: translateY(-50%);
-  animation: scrollDown 15s linear infinite;
+  animation: scrollDown 8s linear infinite;
 }
 
 .name-word {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: 900;
   writing-mode: vertical-lr;
   text-orientation: mixed;
@@ -233,6 +233,7 @@ body {
   opacity: 0.85;
   margin: 0;
   text-align: center;
+  line-height: 1;
 }
 
 .marquee-column:last-child .name-word {
@@ -493,7 +494,7 @@ body {
 
 .typing-text {
   font-family: 'Amiri', 'Playfair Display', serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--typing-color);
   display: inline;
