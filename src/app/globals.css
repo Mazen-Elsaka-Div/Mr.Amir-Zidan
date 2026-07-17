@@ -6,6 +6,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://api.fontshare.com/v2/css?f%5B%5D=array@700,400&display=swap');
 
+@font-face {
+  font-family: 'Pencerio';
+  src: url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.woff2') format('woff2'),
+       url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.woff') format('woff'),
+       url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+
 /* ---- CSS Variables / Theme Tokens ---- */
 :root {
   /* Colors - Light Mode */
@@ -255,9 +265,9 @@ body {
 }
 
 .name-word {
-  font-family: 'Array', 'Bebas Neue', sans-serif;
-  font-size: 4.5rem;
-  font-weight: 700;
+  font-family: 'Pencerio', 'Array', sans-serif;
+  font-size: 5rem;
+  font-weight: normal;
   writing-mode: vertical-lr;
   text-orientation: mixed;
   color: var(--vertical-name-color);
