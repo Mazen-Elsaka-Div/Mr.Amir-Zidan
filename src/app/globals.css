@@ -266,106 +266,58 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
 }
 
 .teacher-image-container {
   position: relative;
-  z-index: 3;
   width: 360px;
   height: 480px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  transform: translateZ(0);
 }
 
 .teacher-image-container img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
 }
 
-/* Letter Halo Orbits */
-.letter-halo {
+/* ---- 3D Spiral Letters ---- */
+.spiral-container {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: rotateSpiral 20s linear infinite;
 }
 
-.halo-inner {
-  width: 480px;
-  height: 480px;
-  animation: rotateHalo 25s linear infinite, pulseHalo 4s ease-in-out infinite;
-}
-
-.halo-outer {
-  width: 600px;
-  height: 600px;
-  animation: rotateHaloReverse 35s linear infinite, pulseHalo 4s ease-in-out infinite 2s;
-}
-
-.halo-letter {
+.spiral-letter {
   position: absolute;
+  top: 50%;
+  left: 50%;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: var(--halo-color-1);
-  transition: color 0.4s ease;
-  text-shadow: 0 0 10px var(--accent-gold-glow);
+  color: var(--accent-gold);
+  text-shadow: 0 0 15px var(--accent-gold-glow);
+  margin-top: -0.9rem;
+  margin-left: -0.5rem;
+  backface-visibility: visible;
 }
 
-.halo-outer .halo-letter {
-  font-size: 1.3rem;
-  color: var(--halo-color-2);
-  text-shadow: none;
+[data-theme="dark"] .spiral-letter {
+  color: var(--accent-gold-light);
+  text-shadow: 0 0 20px var(--accent-gold);
 }
 
-@keyframes rotateHalo {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes rotateHaloReverse {
-  from { transform: translate(-50%, -50%) rotate(360deg); }
-  to { transform: translate(-50%, -50%) rotate(0deg); }
-}
-
-@keyframes pulseHalo {
-  0%, 100% { transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1); }
-  50% { transform: translate(-50%, -50%) rotate(var(--rotation, 0deg)) scale(1.08); }
-}
-
-.halo-inner {
-  animation: rotateHalo 25s linear infinite, pulseInner 4s ease-in-out infinite;
-}
-
-.halo-outer {
-  animation: rotateHaloReverse 35s linear infinite, pulseOuter 4s ease-in-out infinite;
-}
-
-@keyframes pulseInner {
-  0%, 100% { 
-    width: 480px; 
-    height: 480px;
-  }
-  50% { 
-    width: 510px; 
-    height: 510px;
-  }
-}
-
-@keyframes pulseOuter {
-  0%, 100% { 
-    width: 600px; 
-    height: 600px;
-  }
-  50% { 
-    width: 570px; 
-    height: 570px;
-  }
+@keyframes rotateSpiral {
+  from { transform: translate(-50%, -50%) rotateY(0deg); }
+  to { transform: translate(-50%, -50%) rotateY(360deg); }
 }
 
 /* ---- Teacher Info (Right Column) ---- */
@@ -579,16 +531,6 @@ body {
     height: 400px;
   }
 
-  .halo-inner {
-    width: 400px !important;
-    height: 400px !important;
-  }
-
-  .halo-outer {
-    width: 500px !important;
-    height: 500px !important;
-  }
-
   .teacher-info-name {
     font-size: 2.6rem;
   }
@@ -627,16 +569,6 @@ body {
   .teacher-image-container {
     width: 260px;
     height: 350px;
-  }
-
-  .halo-inner {
-    width: 340px !important;
-    height: 340px !important;
-  }
-
-  .halo-outer {
-    width: 420px !important;
-    height: 420px !important;
   }
 
   .teacher-info {
@@ -680,20 +612,6 @@ body {
     height: 300px;
   }
 
-  .halo-inner {
-    width: 280px !important;
-    height: 280px !important;
-  }
-
-  .halo-outer {
-    width: 350px !important;
-    height: 350px !important;
-  }
-
-  .halo-letter {
-    font-size: 1.2rem !important;
-  }
-
   .teacher-info-name {
     font-size: 2rem;
   }
@@ -718,8 +636,7 @@ body {
 
 /* ---- Reduced Motion ---- */
 @media (prefers-reduced-motion: reduce) {
-  .halo-inner,
-  .halo-outer {
+  .spiral-container {
     animation: none !important;
   }
 
