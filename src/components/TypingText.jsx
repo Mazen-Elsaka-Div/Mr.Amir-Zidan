@@ -52,9 +52,8 @@ export default function TypingText() {
 
   return (
     <div className="typing-section" id="typing-section">
-      <span className="typing-text" style={{ direction: lang === 'ar' ? 'rtl' : 'ltr', display: 'inline-block' }}>
-        {displayedText}
-        <span className="typing-cursor" style={{ opacity: isTyping ? 1 : undefined }} />
+      <span className="typing-text" style={{ direction: lang === 'ar' ? 'rtl' : 'ltr' }}>
+        {displayedText}<span className="typing-cursor" style={{ opacity: isTyping ? 1 : undefined }} />
       </span>
     </div>
   );

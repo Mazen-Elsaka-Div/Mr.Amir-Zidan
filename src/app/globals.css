@@ -39,6 +39,7 @@
   --cta-text: #FFFFFF;
   --typing-color: #D62828;
   --typing-underline: #D62828;
+  --teacher-circle-bg: #681f2b;
 }
 
 [data-theme="dark"] {
@@ -74,6 +75,7 @@
   --cta-text: #0A0E1A;
   --typing-color: #FF4D6D;
   --typing-underline: #FF4D6D;
+  --teacher-circle-bg: #1B2A4A;
 }
 
 /* ---- Reset & Base ---- */
@@ -296,7 +298,7 @@ body {
   left: 50%;
   width: 500px;
   height: 500px;
-  background: #681f2b; /* Deep maroon/red like the reference image */
+  background: var(--teacher-circle-bg);
   border-radius: 50%;
   transform: translate(-50%, -50%) translateZ(-50px);
   z-index: -1;
@@ -491,11 +493,11 @@ body {
 
 .typing-cursor {
   display: inline-block;
-  width: 3px;
-  height: 1.4em;
-  background-color: var(--typing-underline);
-  margin-left: 2px;
-  vertical-align: text-bottom;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--typing-color);
+  margin-inline-start: 3px;
+  vertical-align: middle;
   animation: blink 0.7s step-end infinite;
 }
 
