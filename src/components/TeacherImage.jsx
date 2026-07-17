@@ -60,7 +60,7 @@ export default function TeacherImage() {
           {/* Teacher photo — in front of tower */}
           <div className="teacher-layer">
             <Image
-              src="/images/teacher.png"
+              src="/images/المدرس.png"
               alt="مستر أمير زيدان - مدرس اللغة الإنجليزية"
               fill
               priority
