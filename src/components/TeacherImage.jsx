@@ -16,19 +16,15 @@ export default function TeacherImage() {
   return (
     <div className="teacher-image-section" id="teacher-image">
       <div className="teacher-image-wrapper">
-        
-        {/* 3D Spiral Letters */}
+
+        {/* 3D Spiral Letters — still rotating around everything */}
         {mounted && (
           <div className="spiral-container">
             {SPIRAL_LETTERS.map((letter, i) => {
               const total = SPIRAL_LETTERS.length;
               const progress = i / total;
-              
-              // 3 full rotations
               const rotateY = progress * 360 * 3;
-              // Y translation: from bottom to top (scaled up for large image)
               const translateY = 350 - (progress * 700);
-              // Radius of spiral
               const translateZ = 320;
 
               return (
@@ -37,7 +33,7 @@ export default function TeacherImage() {
                   className="spiral-letter"
                   style={{
                     transform: `rotateY(${rotateY}deg) translateY(${translateY}px) translateZ(${translateZ}px)`,
-                    opacity: 0.2 + (Math.sin(progress * Math.PI) * 0.8) // Fade out at top/bottom
+                    opacity: 0.2 + (Math.sin(progress * Math.PI) * 0.8)
                   }}
                 >
                   {letter}
@@ -47,19 +43,33 @@ export default function TeacherImage() {
           </div>
         )}
 
-        {/* Teacher Photo */}
+        {/* Red circle container */}
         <div className="teacher-image-container">
-          <Image
-            src="/images/teacher.png"
-            alt="مستر أمير زيدان - مدرس اللغة الإنجليزية"
-            fill
-            priority
-            style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
-          />
+
+          {/* Tower — behind teacher, floating gently */}
+          <div className="tower-layer">
+            <Image
+              src="/images/عمود.png"
+              alt="Big Ben Tower"
+              fill
+              priority
+              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+            />
+          </div>
+
+          {/* Teacher photo — in front of tower */}
+          <div className="teacher-layer">
+            <Image
+              src="/images/teacher.png"
+              alt="مستر أمير زيدان - مدرس اللغة الإنجليزية"
+              fill
+              priority
+              style={{ objectFit: 'contain', objectPosition: 'center bottom' }}
+            />
+          </div>
+
         </div>
       </div>
     </div>
   );
 }
-
-

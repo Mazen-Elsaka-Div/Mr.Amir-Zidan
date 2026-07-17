@@ -1,6 +1,5 @@
 'use client';
 
-import VerticalName from './VerticalName';
 import TeacherImage from './TeacherImage';
 import TeacherInfo from './TeacherInfo';
 import { useLang } from './LanguageContext';
@@ -16,9 +15,6 @@ export default function HeroSection() {
 
         {/* Center column = Teacher Image */}
         <TeacherImage />
-
-        {/* Left column in visual (RTL) / Right in LTR = Vertical Name (Marquee) */}
-        <VerticalName />
       </div>
     </section>
   );

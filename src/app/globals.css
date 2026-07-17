@@ -51,6 +51,7 @@
   --typing-color: #D62828;
   --typing-underline: #D62828;
   --teacher-circle-bg: #681f2b;
+  --navbar-text-color: #681f2b;
 }
 
 [data-theme="dark"] {
@@ -87,6 +88,7 @@
   --typing-color: #FF4D6D;
   --typing-underline: #FF4D6D;
   --teacher-circle-bg: #FFFFFF;
+  --navbar-text-color: #F0E6D3;
 }
 
 /* ---- Reset & Base ---- */
@@ -123,27 +125,14 @@ body {
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  background-color: var(--notebook-bg);
+  background-color: var(--bg-primary);
   background-image:
-    /* Margin line - vertical on the right side (RTL) */
     linear-gradient(
       to right,
       transparent calc(100% - 60px),
-      var(--notebook-margin) calc(100% - 60px),
-      var(--notebook-margin) calc(100% - 57px),
+      #ff0000 calc(100% - 60px),
+      #ff0000 calc(100% - 57px),
       transparent calc(100% - 57px)
-    ),
-    /* Double ruled lines with larger spacing */
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 78px,
-      var(--notebook-line) 78px,
-      var(--notebook-line) 79.5px,
-      transparent 79.5px,
-      transparent 88px,
-      var(--notebook-line) 88px,
-      var(--notebook-line) 89.5px
     );
   transition: background-color 0.4s ease;
 }
@@ -212,20 +201,23 @@ body {
 /* ---- Navbar ---- */
 .navbar {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2000;
   display: flex;
   align-items: center;
   gap: 36px;
   padding: 14px 36px;
   background: var(--toggle-bg);
-  border-bottom: 1.5px solid var(--border-color);
+  border: 1.5px solid var(--border-color);
+  border-radius: 40px;
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   box-shadow: var(--shadow-md);
   transition: background 0.4s ease;
-  width: 100vw;
+  width: 90vw;
+  max-width: 1400px;
   justify-content: space-between;
 }
 
@@ -261,15 +253,36 @@ body {
 .navbar-link {
   font-family: 'Cairo', sans-serif;
   font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-secondary);
+  font-weight: 700;
+  color: var(--navbar-text-color);
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
+  position: relative;
 }
 
 .navbar-link:hover {
   color: var(--accent-gold);
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  right: 0;
+  background-color: var(--accent-gold);
+  transition: width 0.3s ease;
+}
+
+[dir="ltr"] .navbar-link::after {
+  right: auto;
+  left: 0;
+}
+
+.navbar-link:hover::after {
+  width: 100%;
 }
 
 .navbar-controls {
@@ -292,10 +305,10 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.8fr 2.2fr auto;
+  grid-template-columns: 1.2fr 1.2fr;
   gap: 20px;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
   min-height: 70vh;
@@ -377,14 +390,46 @@ body {
   transform: translateZ(0);
 }
 
-.teacher-image-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
-  transform: scale(1.15) translateY(20px);
-  transform-origin: top center;
+/* Tower layer — behind teacher, floats gently */
+.tower-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding-right: 10%;
+  animation: towerFloat 4s ease-in-out infinite;
+  will-change: transform;
+  opacity: 0.92;
+}
+
+.tower-layer img {
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  transform: none !important;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25)) !important;
+}
+
+/* Teacher layer — in front */
+.teacher-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.teacher-layer img {
+  object-fit: contain !important;
+  object-position: center bottom !important;
+  transform: scale(1.1) translateY(2%) !important;
+  transform-origin: bottom center !important;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3)) !important;
+}
+
+@keyframes towerFloat {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 /* ---- 3D Spiral Letters ---- */
