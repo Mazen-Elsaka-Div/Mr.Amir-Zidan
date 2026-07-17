@@ -4,22 +4,22 @@ export default function VerticalName() {
   const firstName = 'AMIR';
   const lastName = 'ZEDAN';
 
+  // Array to repeat text for seamless scrolling
+  const repeatCount = Array(8).fill(0);
+
   return (
-    <div className="vertical-name" id="vertical-name">
-      <span className="vertical-name-mr">Mr.</span>
-      <div className="vertical-name-columns">
-        <div className="name-column">
-          {firstName.split('').map((letter, i) => (
-            <span key={`first-${i}`} className="name-letter" style={{ animationDelay: `${i * 0.1}s` }}>
-              {letter}
-            </span>
+    <div className="vertical-name" id="vertical-name" dir="ltr">
+      <div className="marquee-column">
+        <div className="marquee-content-up">
+          {repeatCount.map((_, i) => (
+            <span key={`f-${i}`} className="name-word">{firstName}</span>
           ))}
         </div>
-        <div className="name-column">
-          {lastName.split('').map((letter, i) => (
-            <span key={`last-${i}`} className="name-letter" style={{ animationDelay: `${(i + firstName.length) * 0.1}s` }}>
-              {letter}
-            </span>
+      </div>
+      <div className="marquee-column">
+        <div className="marquee-content-down">
+          {repeatCount.map((_, i) => (
+            <span key={`l-${i}`} className="name-word">{lastName}</span>
           ))}
         </div>
       </div>

@@ -3,7 +3,7 @@
 export default function TeacherInfo() {
   return (
     <div className="teacher-info" id="teacher-info">
-      <h1 className="teacher-info-name">أمير زيدان</h1>
+      <h1 className="teacher-info-name">أ/ أمير زيدان</h1>
       
       <p className="teacher-info-title">
         مستر أمير زيدان | مدرس اللغة الإنجليزية للثانوية العامة والأزهرية

@@ -20,8 +20,8 @@
   --accent-gold-dark: #A88A30;
   --accent-gold-light: #E8D5A0;
   --accent-gold-glow: rgba(201, 168, 76, 0.3);
-  --notebook-line: rgba(200, 80, 80, 0.25);
-  --notebook-margin: rgba(220, 60, 60, 0.4);
+  --notebook-line: rgba(200, 80, 80, 0.4);
+  --notebook-margin: rgba(220, 60, 60, 0.6);
   --notebook-bg: #FEFEFE;
   --shadow-sm: 0 2px 8px rgba(27, 42, 74, 0.08);
   --shadow-md: 0 4px 20px rgba(27, 42, 74, 0.12);
@@ -37,15 +37,15 @@
   --cta-bg: linear-gradient(135deg, #C9A84C 0%, #A88A30 100%);
   --cta-hover: linear-gradient(135deg, #D4B85C 0%, #C9A84C 100%);
   --cta-text: #FFFFFF;
-  --typing-color: #C9A84C;
-  --typing-underline: #1B2A4A;
+  --typing-color: #C85050;
+  --typing-underline: #C85050;
 }
 
 [data-theme="dark"] {
   /* Colors - Dark Mode */
-  --bg-primary: #0A0E1A;
-  --bg-paper: #111827;
-  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-primary: #0C152B;
+  --bg-paper: #121F3D;
+  --bg-card: rgba(18, 31, 61, 0.85);
   --text-primary: #F0E6D3;
   --text-secondary: #C4B8A5;
   --text-muted: #7A8BA8;
@@ -55,9 +55,9 @@
   --accent-gold-dark: #B8962E;
   --accent-gold-light: #E8D5A0;
   --accent-gold-glow: rgba(212, 175, 55, 0.25);
-  --notebook-line: rgba(42, 63, 111, 0.3);
-  --notebook-margin: rgba(27, 42, 74, 0.5);
-  --notebook-bg: #0D1220;
+  --notebook-line: rgba(70, 100, 160, 0.5);
+  --notebook-margin: rgba(50, 80, 140, 0.7);
+  --notebook-bg: #0C152B;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
@@ -72,8 +72,8 @@
   --cta-bg: linear-gradient(135deg, #D4AF37 0%, #B8962E 100%);
   --cta-hover: linear-gradient(135deg, #E0BF47 0%, #D4AF37 100%);
   --cta-text: #0A0E1A;
-  --typing-color: #D4AF37;
-  --typing-underline: #F0E6D3;
+  --typing-color: #E66060;
+  --typing-underline: #E66060;
 }
 
 /* ---- Reset & Base ---- */
@@ -117,8 +117,8 @@ body {
       to right,
       transparent calc(100% - 60px),
       var(--notebook-margin) calc(100% - 60px),
-      var(--notebook-margin) calc(100% - 58px),
-      transparent calc(100% - 58px)
+      var(--notebook-margin) calc(100% - 57px),
+      transparent calc(100% - 57px)
     ),
     /* Horizontal ruled lines */
     repeating-linear-gradient(
@@ -126,7 +126,7 @@ body {
       transparent 0px,
       transparent 31px,
       var(--notebook-line) 31px,
-      var(--notebook-line) 32px
+      var(--notebook-line) 33px
     );
   transition: background-color 0.4s ease;
 }
@@ -190,61 +190,63 @@ body {
   min-height: 70vh;
 }
 
-/* ---- Vertical Name (Left Column) ---- */
+/* ---- Vertical Name (Scrolling Marquee) ---- */
 .vertical-name {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  padding: 20px 0;
-}
-
-.vertical-name-mr {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.4rem;
-  letter-spacing: 4px;
-  color: var(--accent-gold);
-  text-transform: uppercase;
-  writing-mode: horizontal-tb;
-  margin-bottom: 8px;
-  opacity: 0.8;
-}
-
-.vertical-name-columns {
-  display: flex;
   flex-direction: row;
-  gap: 6px;
+  justify-content: center;
+  gap: 20px;
+  height: 60vh;
+  overflow: hidden;
+  direction: ltr; /* Ensure LTR */
 }
 
-.name-column {
+.marquee-column {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2px;
+  overflow: hidden;
 }
 
-.name-letter {
+.marquee-content-up, .marquee-content-down {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.marquee-content-up {
+  animation: scrollUp 15s linear infinite;
+}
+
+.marquee-content-down {
+  /* Start offset for seamless looping */
+  transform: translateY(-50%);
+  animation: scrollDown 15s linear infinite;
+}
+
+.name-word {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 2.8rem;
-  line-height: 1;
+  font-size: 6rem;
+  font-weight: 900;
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
   color: var(--vertical-name-color);
-  transition: color 0.3s ease, transform 0.3s ease;
-  display: block;
+  opacity: 0.85;
+  margin: 0;
   text-align: center;
-  width: 38px;
 }
 
-.name-column:first-child .name-letter {
-  color: var(--vertical-name-color);
-}
-
-.name-column:last-child .name-letter {
+.marquee-column:last-child .name-word {
   color: var(--vertical-name-gold);
 }
 
-.name-letter:hover {
-  transform: scale(1.2);
-  color: var(--accent-gold);
+@keyframes scrollUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scrollDown {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
 }
 
 /* ---- Teacher Image Section (Center Column) ---- */
@@ -604,30 +606,12 @@ body {
   }
 
   .vertical-name {
-    flex-direction: row;
-    justify-content: center;
-    gap: 20px;
-    order: -1;
-  }
-
-  .vertical-name-mr {
-    writing-mode: horizontal-tb;
-    align-self: center;
-  }
-
-  .vertical-name-columns {
-    flex-direction: row;
+    height: 30vh;
     gap: 12px;
   }
 
-  .name-column {
-    flex-direction: row;
-    gap: 4px;
-  }
-
-  .name-letter {
-    font-size: 2.2rem;
-    width: auto;
+  .name-word {
+    font-size: 4rem;
   }
 
   .teacher-image-section {
@@ -681,8 +665,8 @@ body {
     padding: 16px;
   }
 
-  .name-letter {
-    font-size: 1.8rem;
+  .name-word {
+    font-size: 3rem;
   }
 
   .teacher-image-wrapper {
