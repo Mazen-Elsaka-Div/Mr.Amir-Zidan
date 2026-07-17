@@ -10,9 +10,9 @@ export default function TeacherInfo() {
       <h1 className="teacher-info-name">
         {lang === 'ar' ? 'أ/ أمير زيدان' : 'Mr. Amir Zedan'}
       </h1>
-      
+
       <p className="teacher-info-title">
-        {lang === 'ar' 
+        {lang === 'ar'
           ? 'مستر أمير زيدان | مدرس اللغة الإنجليزية للثانوية العامة والأزهرية'
           : 'Mr. Amir Zedan | English Teacher for Secondary & Al-Azhar'}
       </p>

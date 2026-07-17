@@ -7,11 +7,11 @@
 @import url('https://api.fontshare.com/v2/css?f%5B%5D=array@700,400&display=swap');
 
 @font-face {
-  font-family: 'Pencerio';
-  src: url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.woff2') format('woff2'),
-       url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.woff') format('woff'),
-       url('/Pencerio_Complete/Fonts/WEB/fonts/Pencerio-Hairline.ttf') format('truetype');
-  font-weight: normal;
+  font-family: 'Britney';
+  src: url('/Britney_Complete/Fonts/WEB/fonts/Britney-Bold.woff2') format('woff2'),
+       url('/Britney_Complete/Fonts/WEB/fonts/Britney-Bold.woff') format('woff'),
+       url('/Britney_Complete/Fonts/WEB/fonts/Britney-Bold.ttf') format('truetype');
+  font-weight: bold;
   font-display: swap;
   font-style: normal;
 }
@@ -265,9 +265,9 @@ body {
 }
 
 .name-word {
-  font-family: 'Pencerio', 'Array', sans-serif;
+  font-family: 'Britney', 'Array', sans-serif;
   font-size: 5rem;
-  font-weight: normal;
+  font-weight: bold;
   writing-mode: vertical-lr;
   text-orientation: mixed;
   color: var(--vertical-name-color);
