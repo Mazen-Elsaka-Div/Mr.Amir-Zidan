@@ -3,7 +3,7 @@
    Design System - Navy & Gold Theme
    =================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cairo:wght@300;400;500;600;700;800&family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Tajawal:wght@400;700;900&display=swap');
 @import url('https://api.fontshare.com/v2/css?f%5B%5D=array@700,400&display=swap');
 
 @font-face {
@@ -144,29 +144,25 @@ body {
   transition: background-color 0.4s ease;
 }
 
-/* ---- Theme Toggle ---- */
+/* ---- Theme Toggle (inside navbar) ---- */
 .theme-toggle {
-  position: fixed;
-  top: 24px;
-  left: 24px;
-  z-index: 1000;
-  width: 52px;
-  height: 52px;
+  position: static;
+  z-index: auto;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 2px solid var(--border-color);
-  background: var(--toggle-bg);
+  border: 1.5px solid var(--border-color);
+  background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
+  flex-shrink: 0;
 }
 
 .theme-toggle:hover {
   transform: scale(1.1) rotate(15deg);
-  box-shadow: var(--shadow-md);
   border-color: var(--accent-gold);
 }
 
@@ -175,44 +171,109 @@ body {
 }
 
 .theme-toggle svg {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   color: var(--toggle-icon);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* ---- Language Toggle ---- */
+/* ---- Language Toggle (inside navbar) ---- */
 .lang-toggle {
-  position: fixed;
-  top: 24px;
-  left: 84px;
-  z-index: 1000;
-  width: 52px;
-  height: 52px;
+  position: static;
+  z-index: auto;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  border: 2px solid var(--border-color);
-  background: var(--toggle-bg);
+  border: 1.5px solid var(--border-color);
+  background: transparent;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(10px);
-  font-family: 'Cairo', 'Outfit', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--accent-gold);
 }
 
 .lang-toggle:hover {
   transform: scale(1.1);
-  box-shadow: var(--shadow-md);
   border-color: var(--accent-gold);
 }
 
 .lang-toggle:active {
   transform: scale(0.95);
+}
+
+/* ---- Navbar ---- */
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 10px 28px;
+  background: var(--toggle-bg);
+  border: 1.5px solid var(--border-color);
+  border-radius: 100px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-md);
+  transition: background 0.4s ease;
+  max-width: calc(100vw - 40px);
+}
+
+.navbar-logo {
+  flex-shrink: 0;
+}
+
+.navbar-logo-ar {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: var(--accent-gold);
+  white-space: nowrap;
+  letter-spacing: 0;
+}
+
+.navbar-logo-en {
+  font-family: 'Britney', 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--accent-gold);
+  white-space: nowrap;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-link {
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.navbar-link:hover {
+  color: var(--accent-gold);
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 /* ---- Hero Section ---- */
@@ -771,4 +832,97 @@ body {
 @keyframes pulseOpacity {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
+}
+
+/* ---- Hero top padding for fixed navbar ---- */
+.hero-section {
+  padding-top: 100px;
+}
+
+/* ---- Mobile Responsive ---- */
+@media (max-width: 768px) {
+  .navbar {
+    gap: 16px;
+    padding: 8px 16px;
+  }
+
+  .navbar-links {
+    display: none; /* Hide nav links on mobile to keep pill compact */
+  }
+
+  .hero-section {
+    padding: 90px 20px 40px;
+    min-height: unset;
+  }
+
+  .hero-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .teacher-info {
+    order: 1;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .teacher-info-name {
+    font-size: 2.8rem;
+  }
+
+  .teacher-info-title {
+    font-size: 1rem;
+    border-inline-start: none;
+    border-top: 3px solid var(--accent-gold);
+    padding-inline-start: 0;
+    padding-top: 10px;
+    text-align: center;
+  }
+
+  .teacher-image-wrapper {
+    order: 2;
+    width: 100%;
+    max-width: 340px;
+    height: 380px;
+  }
+
+  .teacher-image-wrapper::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Horizontal marquee below image on mobile */
+  .vertical-name {
+    order: 3;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .marquee-column {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .marquee-content-up {
+    flex-direction: row;
+    gap: 32px;
+    animation: scrollRight 8s linear infinite;
+    will-change: transform;
+  }
+
+  .name-word {
+    writing-mode: horizontal-tb;
+    font-size: 3.5rem;
+  }
+
+  @keyframes scrollRight {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 }

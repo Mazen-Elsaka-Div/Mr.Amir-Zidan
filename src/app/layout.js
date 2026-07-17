@@ -1,4 +1,5 @@
 import "./globals.css";
+import LoadingScreen from "@/components/LoadingScreen";
 
 export const metadata = {
   title: "مستر أمير زيدان | مدرس اللغة الإنجليزية",
@@ -13,7 +14,10 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body>{children}</body>
+      <body>
+        <LoadingScreen />
+        {children}
+      </body>
     </html>
   );
 }
