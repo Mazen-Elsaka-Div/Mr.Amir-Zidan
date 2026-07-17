@@ -133,13 +133,17 @@ body {
       var(--notebook-margin) calc(100% - 57px),
       transparent calc(100% - 57px)
     ),
-    /* Horizontal ruled lines */
+    /* Double ruled lines with large spacing */
     repeating-linear-gradient(
       to bottom,
       transparent 0px,
-      transparent 31px,
-      var(--notebook-line) 31px,
-      var(--notebook-line) 33px
+      transparent 78px,
+      var(--notebook-line) 78px,
+      var(--notebook-line) 79.5px,
+      transparent 79.5px,
+      transparent 84px,
+      var(--notebook-line) 84px,
+      var(--notebook-line) 85.5px
     );
   transition: background-color 0.4s ease;
 }
@@ -208,14 +212,14 @@ body {
 /* ---- Navbar ---- */
 .navbar {
   position: fixed;
-  top: 20px;
+  top: 16px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 2000;
   display: flex;
   align-items: center;
-  gap: 32px;
-  padding: 10px 28px;
+  gap: 36px;
+  padding: 14px 36px;
   background: var(--toggle-bg);
   border: 1.5px solid var(--border-color);
   border-radius: 100px;
@@ -223,7 +227,9 @@ body {
   -webkit-backdrop-filter: blur(18px);
   box-shadow: var(--shadow-md);
   transition: background 0.4s ease;
-  max-width: calc(100vw - 40px);
+  width: calc(100vw - 60px);
+  max-width: 1200px;
+  justify-content: space-between;
 }
 
 .navbar-logo {
@@ -232,7 +238,7 @@ body {
 
 .navbar-logo-ar {
   font-family: 'Tajawal', 'Cairo', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 900;
   color: var(--accent-gold);
   white-space: nowrap;
@@ -241,7 +247,7 @@ body {
 
 .navbar-logo-en {
   font-family: 'Britney', 'Playfair Display', serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   color: var(--accent-gold);
   white-space: nowrap;
@@ -257,7 +263,7 @@ body {
 
 .navbar-link {
   font-family: 'Cairo', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-secondary);
   text-decoration: none;

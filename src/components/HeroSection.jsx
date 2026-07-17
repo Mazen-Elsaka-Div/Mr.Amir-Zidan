@@ -3,7 +3,6 @@
 import VerticalName from './VerticalName';
 import TeacherImage from './TeacherImage';
 import TeacherInfo from './TeacherInfo';
-import TypingText from './TypingText';
 import { useLang } from './LanguageContext';
 
 export default function HeroSection() {
@@ -21,10 +20,8 @@ export default function HeroSection() {
         {/* Left column in visual (RTL) / Right in LTR = Vertical Name (Marquee) */}
         <VerticalName />
       </div>
-
-      {/* Typing animation below the 3 columns */}
-      <TypingText />
     </section>
   );
 }
+
 
