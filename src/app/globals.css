@@ -402,7 +402,7 @@ body {
 /* Tower layer — behind teacher, floats gently */
 .tower-layer {
   position: absolute;
-  top: -15%;
+  top: -25%;
   right: -30%;
   width: 140%;
   height: 140%;
@@ -430,7 +430,7 @@ body {
 .teacher-layer img {
   object-fit: contain !important;
   object-position: center center !important;
-  transform: scale(1.6) !important;
+  transform: scale(1.8) !important;
   transform-origin: center center !important;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2)) !important;
 }
@@ -480,116 +480,131 @@ body {
 .teacher-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 80px 30px 80px 30px;
+  gap: 24px;
+  padding: 80px 40px 80px 20px;
   text-align: start;
   justify-content: center;
   align-self: center;
 }
 
-.teacher-info-name {
-  font-family: 'Britney', 'Playfair Display', 'Cairo', serif;
-  font-size: 4.5rem;
-  font-weight: 900;
-  color: var(--text-primary);
-  line-height: 1.2;
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 50%, var(--accent-gold-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.teacher-info-title {
-  font-family: 'Cairo', sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  line-height: 1.6;
-  border-inline-start: 3px solid var(--accent-gold);
-  padding-inline-start: 16px;
-}
-
-.teacher-info-quote {
-  font-family: 'Cairo', sans-serif;
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  line-height: 1.8;
-  position: relative;
-  padding: 16px 20px;
-  background: var(--bg-card);
-  border-radius: 12px;
+/* Badge / Pill */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: transparent;
   border: 1px solid var(--border-color);
-  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  width: fit-content;
+  color: var(--text-secondary);
+  font-family: 'Cairo', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.hero-badge-icon {
+  color: #D4AF37;
 }
 
-.teacher-info-quote::before {
-  content: '"';
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  color: var(--accent-gold);
-  opacity: 0.3;
-  position: absolute;
-  top: -10px;
-  inset-inline-start: 10px;
-  line-height: 1;
+/* Main Heading */
+.hero-heading {
+  font-family: 'Cairo', sans-serif; /* Fallback for a nice thick font */
+  font-size: 4.8rem;
+  font-weight: 900;
+  line-height: 1.25;
+  color: #1B2A4A;
+  margin: 0;
+  text-shadow: 1px 1px 0px rgba(0,0,0,0.1), -1px -1px 0px rgba(0,0,0,0.05); /* Slight sketchy/3d effect */
+}
+[data-theme="dark"] .hero-heading {
+  color: #F0E6D3;
+}
+.highlight-green {
+  color: #1B5E20; /* Dark forest green like in the image */
+  position: relative;
+  display: inline-block;
+}
+[data-theme="dark"] .highlight-green {
+  color: #4CAF50; /* Lighter green for dark mode */
 }
 
-.cta-button {
+/* Description */
+.hero-description {
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 90%;
+}
+
+/* Action Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 40px;
-  background: var(--cta-bg);
-  color: var(--cta-text);
+  gap: 12px;
+  padding: 14px 32px;
+  background: #D4AF37; /* Mustard/Gold color matching the image */
+  color: #1B2A4A;
   border: none;
-  border-radius: 12px;
+  border-radius: 50px;
   font-family: 'Cairo', sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+.hero-btn-primary:hover {
+  background: #C49B27;
+  transform: translateY(-2px);
+}
+
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: transparent;
+  color: #1B2A4A;
+  border: 1px solid var(--border-color);
+  border-radius: 50px;
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px var(--accent-gold-glow);
-  position: relative;
-  overflow: hidden;
-  align-self: flex-start;
   text-decoration: none;
+  transition: all 0.3s ease;
+}
+[data-theme="dark"] .hero-btn-secondary {
+  color: #F0E6D3;
+}
+.hero-btn-secondary:hover {
+  background: rgba(0,0,0,0.03);
+}
+[data-theme="dark"] .hero-btn-secondary:hover {
+  background: rgba(255,255,255,0.05);
 }
 
-.cta-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.cta-button:hover {
-  background: var(--cta-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px var(--accent-gold-glow);
-}
-
-.cta-button:hover::before {
-  left: 100%;
-}
-
-.cta-button:active {
-  transform: translateY(-1px);
-}
-
-.cta-button-icon {
+.hero-btn-icon {
   width: 20px;
   height: 20px;
   transition: transform 0.3s ease;
 }
-
-.cta-button:hover .cta-button-icon {
+[dir="rtl"] .hero-btn-primary:hover .hero-btn-icon {
   transform: translateX(-4px);
+}
+[dir="ltr"] .hero-btn-primary:hover .hero-btn-icon {
+  transform: translateX(4px);
 }
 
 /* ---- Typing Text ---- */
