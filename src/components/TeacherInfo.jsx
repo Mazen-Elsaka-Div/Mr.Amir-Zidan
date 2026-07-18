@@ -1,7 +1,6 @@
 'use client';
 
 import { useLang } from './LanguageContext';
-import { ArrowLeft } from 'lucide-react'; // We can use lucide-react if installed, or just an SVG. I will use SVG to be safe.
 
 export default function TeacherInfo() {
   const { lang } = useLang();
