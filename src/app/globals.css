@@ -127,12 +127,17 @@ body {
   pointer-events: none;
   background-color: var(--bg-primary);
   background-image:
+    /* Double vertical margin lines */
     linear-gradient(
       to right,
-      transparent calc(100% - 60px),
-      #ff0000 calc(100% - 60px),
-      #ff0000 calc(100% - 57px),
-      transparent calc(100% - 57px)
+      transparent calc(100% - 68px),
+      #D62828 calc(100% - 68px),
+      #D62828 calc(100% - 65px),
+      transparent calc(100% - 65px),
+      transparent calc(100% - 58px),
+      #D62828 calc(100% - 58px),
+      #D62828 calc(100% - 55px),
+      transparent calc(100% - 55px)
     );
   transition: background-color 0.4s ease;
 }
@@ -299,19 +304,20 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 40px 60px;
+  justify-content: flex-end;
+  padding: 0 60px;
+  overflow: hidden;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.2fr 1.2fr;
-  gap: 20px;
-  align-items: center;
-  max-width: 1200px;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 0;
+  align-items: flex-end;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
-  min-height: 70vh;
+  min-height: 100vh;
 }
 
 /* ---- Vertical Name (Scrolling Marquee) ---- */
@@ -363,52 +369,53 @@ body {
 .teacher-image-section {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-  min-height: 550px;
+  min-height: 85vh;
+  overflow: visible;
 }
 
 .teacher-image-wrapper {
   position: relative;
-  width: 480px;
-  height: 480px;
+  width: 520px;
+  height: 85vh;
+  max-height: 800px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
+  overflow: visible;
 }
 
 .teacher-image-container {
   position: relative;
   width: 100%;
   height: 100%;
-  background: var(--teacher-circle-bg);
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
   transform: translateZ(0);
 }
 
 /* Tower layer — behind teacher, floats gently */
 .tower-layer {
   position: absolute;
-  inset: 0;
+  top: 0;
+  right: -10%;
+  width: 55%;
+  height: 100%;
   z-index: 1;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  padding-right: 10%;
-  animation: towerFloat 4s ease-in-out infinite;
+  animation: towerFloat 5s ease-in-out infinite;
   will-change: transform;
-  opacity: 0.92;
+  opacity: 0.88;
 }
 
 .tower-layer img {
   object-fit: contain !important;
-  object-position: center bottom !important;
+  object-position: right bottom !important;
   transform: none !important;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.25)) !important;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)) !important;
 }
 
 /* Teacher layer — in front */
@@ -421,14 +428,14 @@ body {
 .teacher-layer img {
   object-fit: contain !important;
   object-position: center bottom !important;
-  transform: scale(1.1) translateY(2%) !important;
+  transform: none !important;
   transform-origin: bottom center !important;
-  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3)) !important;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)) !important;
 }
 
 @keyframes towerFloat {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
+  50%  { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
 
@@ -472,8 +479,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px 30px;
+  padding: 80px 30px 80px 30px;
   text-align: start;
+  justify-content: center;
+  align-self: center;
 }
 
 .teacher-info-name {
