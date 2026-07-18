@@ -18,20 +18,19 @@ export default function TeacherInfo() {
             <path d="M3 5h4"/>
             <path d="M17 19h4"/>
           </svg>
-          <span>{lang === 'ar' ? 'منصة اللغة الإنجليزية الأولى للثانوية العامة' : 'The #1 English Platform for High School'}</span>
+          <span>{lang === 'ar' ? 'منصة اللغة الإنجليزية الأقوى للثانوية العامة' : 'The Strongest English Platform for High School'}</span>
         </div>
 
         {/* Main Heading */}
         <h1 className="hero-heading">
           {lang === 'ar' ? (
             <>
-              الإنجليزي مش عقدة، ي<br/>
-              ولاد<br/>
-              هي بس محتاجة <span className="highlight-green">مُعَلِّم</span> صح
+              الإنجليزي مش عقدة..<br/>
+              كل الفكرة إنك محتاج <span className="highlight-green">مُعَلِّم</span> صح
             </>
           ) : (
             <>
-              English isn't hard, guys<br/>
+              English isn't hard...<br/>
               You just need the <span className="highlight-green">Right Teacher</span>
             </>
           )}
@@ -46,9 +45,6 @@ export default function TeacherInfo() {
 
         {/* Action Buttons */}
         <div className="hero-actions">
-          <a href="#about" className="hero-text-link">
-            {lang === 'ar' ? 'اعرف أكثر عن المنصة' : 'Learn more'}
-          </a>
           <a href="#stages" className="glass-button">
             {lang === 'ar' ? 'اختار مرحلتك الدراسية' : 'Choose your stage'}
             {lang === 'ar' ? (
