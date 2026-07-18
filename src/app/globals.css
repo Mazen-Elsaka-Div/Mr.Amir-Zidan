@@ -377,15 +377,16 @@ body {
 
 .teacher-image-wrapper {
   position: relative;
-  width: 520px;
-  height: 85vh;
-  max-height: 800px;
+  width: 750px;
+  height: 90vh;
+  max-height: 900px;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
   overflow: visible;
+  margin-right: -50px; /* Pull it slightly to the right if needed */
 }
 
 .teacher-image-container {
@@ -401,14 +402,15 @@ body {
 /* Tower layer — behind teacher, floats gently */
 .tower-layer {
   position: absolute;
-  top: 0;
-  right: -10%;
-  width: 55%;
-  height: 100%;
+  top: 10%;
+  right: -15%;
+  width: 60%;
+  height: 75%;
   z-index: 1;
   animation: towerFloat 5s ease-in-out infinite;
   will-change: transform;
-  opacity: 0.88;
+  opacity: 0.95;
+  transform-origin: bottom center;
 }
 
 .tower-layer img {
@@ -428,15 +430,15 @@ body {
 .teacher-layer img {
   object-fit: contain !important;
   object-position: center bottom !important;
-  transform: none !important;
+  transform: scale(1.15) !important;
   transform-origin: bottom center !important;
   filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)) !important;
 }
 
 @keyframes towerFloat {
-  0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-12px); }
-  100% { transform: translateY(0px); }
+  0%   { transform: translateY(0px) rotate(8deg); }
+  50%  { transform: translateY(-15px) rotate(8deg); }
+  100% { transform: translateY(0px) rotate(8deg); }
 }
 
 /* ---- 3D Spiral Letters ---- */
