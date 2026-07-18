@@ -311,9 +311,9 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
+  grid-template-columns: 1fr 1.3fr;
   gap: 0;
-  align-items: flex-end;
+  align-items: center;
   max-width: 1300px;
   margin: 0 auto;
   width: 100%;
@@ -369,24 +369,24 @@ body {
 .teacher-image-section {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  min-height: 85vh;
+  min-height: 100vh;
   overflow: visible;
 }
 
 .teacher-image-wrapper {
   position: relative;
-  width: 750px;
+  width: 100%;
   height: 90vh;
-  max-height: 900px;
+  max-height: none;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
   perspective: 1200px;
   transform-style: preserve-3d;
   overflow: visible;
-  margin-right: -50px; /* Pull it slightly to the right if needed */
+  margin-right: -20px;
 }
 
 .teacher-image-container {
@@ -402,22 +402,22 @@ body {
 /* Tower layer — behind teacher, floats gently */
 .tower-layer {
   position: absolute;
-  top: 10%;
-  right: -15%;
-  width: 60%;
-  height: 75%;
+  top: -15%;
+  right: -30%;
+  width: 140%;
+  height: 140%;
   z-index: 1;
   animation: towerFloat 5s ease-in-out infinite;
   will-change: transform;
   opacity: 0.95;
-  transform-origin: bottom center;
+  transform-origin: center center;
 }
 
 .tower-layer img {
   object-fit: contain !important;
-  object-position: right bottom !important;
+  object-position: right center !important;
   transform: none !important;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)) !important;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.25)) !important;
 }
 
 /* Teacher layer — in front */
@@ -429,15 +429,15 @@ body {
 
 .teacher-layer img {
   object-fit: contain !important;
-  object-position: center bottom !important;
-  transform: scale(1.15) !important;
-  transform-origin: bottom center !important;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)) !important;
+  object-position: center center !important;
+  transform: scale(1.6) !important;
+  transform-origin: center center !important;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2)) !important;
 }
 
 @keyframes towerFloat {
   0%   { transform: translateY(0px) rotate(8deg); }
-  50%  { transform: translateY(-15px) rotate(8deg); }
+  50%  { transform: translateY(-20px) rotate(8deg); }
   100% { transform: translateY(0px) rotate(8deg); }
 }
 
