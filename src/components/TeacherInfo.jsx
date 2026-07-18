@@ -46,6 +46,9 @@ export default function TeacherInfo() {
 
         {/* Action Buttons */}
         <div className="hero-actions">
+          <a href="#about" className="hero-text-link">
+            {lang === 'ar' ? 'اعرف أكثر عن المنصة' : 'Learn more'}
+          </a>
           <a href="#stages" className="glass-button">
             {lang === 'ar' ? 'اختار مرحلتك الدراسية' : 'Choose your stage'}
             {lang === 'ar' ? (
