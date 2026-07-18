@@ -323,10 +323,10 @@ body {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 0;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 40px;
   align-items: center;
-  max-width: 1300px;
+  max-width: 1450px;
   margin: 0 auto;
   width: 100%;
   min-height: 100vh;
@@ -398,7 +398,8 @@ body {
   perspective: 1200px;
   transform-style: preserve-3d;
   overflow: visible;
-  margin-right: -20px;
+  margin-right: 0;
+  transform: translateX(-80px); /* Push further to the left visually */
 }
 
 .teacher-image-container {
@@ -517,8 +518,9 @@ body {
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2), inset 0 0 40px rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
-  width: 115%;
-  margin-right: -50px; /* Push slightly to the right in RTL */
+  width: 110%;
+  margin-right: 0; 
+  transform: translateX(60px); /* Push further to the right visually */
 }
 
 [data-theme="dark"] .glass-panel {
