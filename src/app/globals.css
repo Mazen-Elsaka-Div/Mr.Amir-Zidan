@@ -317,6 +317,22 @@ body {
   overflow: hidden;
 }
 
+/* Golden Ring Background Effect */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
+  height: 150vh;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  border-radius: 50%;
+  border: 4px solid rgba(212, 175, 55, 0.15); /* Gold tint */
+  box-shadow: 0 0 100px rgba(212, 175, 55, 0.1), inset 0 0 80px rgba(212, 175, 55, 0.05);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -493,6 +509,46 @@ body {
   text-align: start;
   justify-content: center;
   align-self: center;
+  z-index: 2; /* Ensure it stays above the golden ring */
+}
+
+/* Liquid Glass Panel */
+.glass-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 32px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1), inset 0 0 20px rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .glass-panel {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: skewX(-20deg);
+  animation: panelShine 10s infinite;
+}
+
+@keyframes panelShine {
+  0%, 80% { left: -100%; }
+  100% { left: 200%; }
 }
 
 /* Badge / Pill */
@@ -555,52 +611,61 @@ body {
   flex-wrap: wrap;
 }
 
-.hero-btn-primary {
+/* Liquid Glass Button */
+.glass-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
-  padding: 14px 32px;
-  background: #D4AF37; /* Mustard/Gold color matching the image */
+  padding: 16px 36px;
+  background: rgba(212, 175, 55, 0.25); /* Gold tinted glass */
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   color: #1B2A4A;
-  border: none;
+  border: 1px solid rgba(212, 175, 55, 0.5);
   border-radius: 50px;
   font-family: 'Cairo', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   cursor: pointer;
   text-decoration: none;
-  transition: all 0.3s ease;
-}
-.hero-btn-primary:hover {
-  background: #C49B27;
-  transform: translateY(-2px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15), inset 0 0 15px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.hero-btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 32px;
-  background: transparent;
-  color: #1B2A4A;
-  border: 1px solid var(--border-color);
-  border-radius: 50px;
-  font-family: 'Cairo', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 700;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-[data-theme="dark"] .hero-btn-secondary {
+[data-theme="dark"] .glass-button {
   color: #F0E6D3;
+  background: rgba(212, 175, 55, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.05);
 }
-.hero-btn-secondary:hover {
-  background: rgba(0,0,0,0.03);
+
+.glass-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transform: skewX(-25deg);
+  transition: all 0.6s ease;
 }
-[data-theme="dark"] .hero-btn-secondary:hover {
-  background: rgba(255,255,255,0.05);
+
+.glass-button:hover {
+  background: rgba(212, 175, 55, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.glass-button:hover::after {
+  animation: shine 1.2s ease-in-out;
+}
+
+@keyframes shine {
+  0% { left: -150%; }
+  100% { left: 150%; }
 }
 
 .hero-btn-icon {
@@ -608,10 +673,10 @@ body {
   height: 20px;
   transition: transform 0.3s ease;
 }
-[dir="rtl"] .hero-btn-primary:hover .hero-btn-icon {
+[dir="rtl"] .glass-button:hover .hero-btn-icon {
   transform: translateX(-4px);
 }
-[dir="ltr"] .hero-btn-primary:hover .hero-btn-icon {
+[dir="ltr"] .glass-button:hover .hero-btn-icon {
   transform: translateX(4px);
 }
 
