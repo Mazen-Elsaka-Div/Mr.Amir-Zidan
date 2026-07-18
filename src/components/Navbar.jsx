@@ -27,7 +27,7 @@ export default function Navbar() {
       {/* Logo */}
       <div className="navbar-logo">
         {lang === 'ar' ? (
-          <span className="navbar-logo-ar">مستر أمير زيدان</span>
+          <span className="navbar-logo-ar">م. أمير زيدان</span>
         ) : (
           <span className="navbar-logo-en">Mr. Amir Zedan</span>
         )}

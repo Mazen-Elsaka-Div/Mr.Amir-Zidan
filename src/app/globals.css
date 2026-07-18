@@ -16,6 +16,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Thmanyah';
+  src: url('/Thmanyah-Font-Family/thmanyah%20typeface/thmanyahsans/woff2/thmanyahsans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: swap;
+  font-style: normal;
+}
+
 /* ---- CSS Variables / Theme Tokens ---- */
 :root {
   /* Colors - Light Mode */
@@ -402,7 +410,7 @@ body {
 /* Tower layer — behind teacher, floats gently */
 .tower-layer {
   position: absolute;
-  top: -25%;
+  top: -30%;
   right: -30%;
   width: 140%;
   height: 140%;
@@ -508,8 +516,8 @@ body {
 
 /* Main Heading */
 .hero-heading {
-  font-family: 'Cairo', sans-serif; /* Fallback for a nice thick font */
-  font-size: 4.8rem;
+  font-family: 'Thmanyah', 'Cairo', sans-serif;
+  font-size: 3.8rem; /* Reduced font size */
   font-weight: 900;
   line-height: 1.25;
   color: #1B2A4A;
